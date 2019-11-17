@@ -1,0 +1,9 @@
+CREATE OR REPLACE FUNCTION scan_filas(int[]) RETURNS void AS $$
+DECLARE
+	x int[];
+BEGIN
+	FOREACH x SLICE 1 IN ARRAY $1 LOOP
+		RAISE NOTICE 'Tupla = %', x;
+	END LOOP;
+END;
+$$ LANGUAGE plpgsql;
